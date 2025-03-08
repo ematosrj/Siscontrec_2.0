@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Siscontrec_2.0
 Siscontrec é um sistema de gestão de contratos e licitações, que também pode ser utilizado para o controle de acesso e registro de visitantes em ambientes como quartéis. Ele facilita a administração de processos licitatórios e contratuais, garantindo transparência e segurança.
 =======
