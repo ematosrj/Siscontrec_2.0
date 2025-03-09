@@ -1,4 +1,10 @@
-<x-app-layout>
+@extends('layouts.main')
+
+<title>@yield('title' , 'Editar perfil')</title>
+
+
+@section('content')
+
 
 
     <div class="py-12">
@@ -22,4 +28,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection

@@ -9,35 +9,31 @@ class Visitante extends Model
 {
     use HasFactory;
 
+    protected $table = 'visitantes';
+
     protected $fillable = [
-        'name', 
-        'documento', 
-        'data_hora_entrada', 
-        'data_hora_saida', 
-        'usuario_id', 
-        'opm_id', 
-        'quem_veio_visitar',
-        'veiculo_tipo', 
-        'veiculo_marca', 
-        'veiculo_modelo', 
-        'veiculo_placa'
+        'nome',
+        'documento',
+        'data_hora_entrada',
+        'data_hora_saida',
+        'usuario_registrou_id',
+        'opm_visitada_id',
+        'quem_visitar',
+        'veiculo_marca',
+        'veiculo_modelo',
+        'veiculo_tipo',
+        'placa',
     ];
 
-    // Relacionamento com o usuário (quem registrou a visita)
+    // Relacionamento com o usuário que registrou a visita
     public function usuario()
     {
-        return $this->belongsTo(User::class, 'usuario_id');
+        return $this->belongsTo(User::class, 'usuario_registrou_id');
     }
 
-    // Relacionamento com a unidade (opm_id)
-    public function opm()
+    // Relacionamento com a OPM visitada (supondo que haja um Model Opm)
+    public function opmVisitada()
     {
-        return $this->belongsTo(User::class, 'opm_id');
-    }
-
-    // Obter o nome da unidade (se associada ao usuário)
-    public function opmname()
-    {
-        return $this->opm ? $this->opm->unit : 'N/A';
+        return $this->belongsTo(Opm::class, 'opm_visitada_id');
     }
 }

@@ -1,3 +1,8 @@
+@extends('layouts.login')
+
+@section('content')
+
+
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600">
         {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
@@ -16,10 +21,18 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
+        <div class="flex items-center justify-end mt-4 mr-1">
+
+        <x-primary-button class="mr-1">
+    {{ __('Email Password Reset Link') }}
+</x-primary-button>
+
+<x-primary-button>
+    <a href="{{ route('login') }}" class="text-white w-full h-full block text-center">Voltar para Login</a>
+</x-primary-button>
+
+
         </div>
     </form>
 </x-guest-layout>
+@endsection
