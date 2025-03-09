@@ -1,9 +1,5 @@
 Siscontrec_2.0
-Siscontrec é um sistema de gestão de acesso e registro de visitantes em ambientes como quartéis. 
-
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="[https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg](http://www.pm.ba.gov.br/wp-content/uploads/2025/01/Selo200anos_2-768x333-1.jpg)" width="400" alt="Laravel Logo"></a></p>
-
-
+Siscontrec é um sistema de gestão de acesso e registro de visitantes em ambientes como quartéis.
 
 ## About Laravel
 
