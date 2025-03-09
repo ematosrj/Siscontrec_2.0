@@ -37,6 +37,10 @@
     Cadastrar Visitante
 </a>
 
+<button type="button" class="btn btn-info" onclick="window.location.href='{{ route('visitantes.index') }}'">
+    Listagem de visitantes
+</button>
+
 
             @if (auth()->user()->access == 'Super-Usuario' || auth()->user()->access == 'Administrador')
                 <a href="{{ route('operadores.create') }}" class="bg-yellow-500 hover:bg-yellow-700 text-white py-3 px-4 rounded-lg text-lg w-full34sds">

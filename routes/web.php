@@ -41,6 +41,9 @@ Route::middleware(['auth', 'check.access'])->group(function () {
 
 Route::get('/visitantes/cadastrar', [VisitanteController::class, 'create'])->name('visitantes.create');
 Route::post('/visitantes', [VisitanteController::class, 'store'])->name('visitantes.store');
+Route::get('/visitantes', [VisitanteController::class, 'index'])->name('visitantes.index');
+Route::resource('visitantes', VisitanteController::class);
+
 
 
 

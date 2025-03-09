@@ -11,48 +11,35 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = ['registration_number', 'rank', 'name', 'email', 'access', 'password'];
 
-    
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
- // Funções para checar cargos
- public function isAdmin()
- {
-     return $this->role === 'Administrador';
- }
 
- public function isSuperUser()
- {
-     return $this->role === 'Super-Usuario';
- }
+    // Função para verificar se o usuário é um Super-Usuário
+    public function isSuperUser()
+    {
+        return $this->access === 'Super-Usuario';
+    }
 
- public function isOperator()
- {
-     return $this->role === 'Operador';
- }
+    // Função para verificar se o usuário é um Administrador
+    public function isAdmin()
+    {
+        return $this->access === 'Administrador';
+    }
+
+    // Função para verificar se o usuário é um Operador
+    public function isOperator()
+    {
+        return $this->access === 'Operador';
+    }
+
     /**
      * Relacionamento com visitantes registrados.
      */
