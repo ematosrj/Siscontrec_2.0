@@ -10,13 +10,17 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-<!-- Link do CDN do Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com"></script>
+        
+        <!-- Link do CDN do Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        
+        </head>
+
+        <body class="font-sans antialiased">
+
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
@@ -28,8 +32,11 @@
                     </div>
                 </header>
             @endif
+        </div>
+
 
 @yield('content')
+
 <footer class="bg-black text-white text-center font-bold text-1xl py-4 w-full fixed bottom-0">
     <p>Siscontrec - &copy; Polícia Militar do Estado da Bahia</p>
 </footer>

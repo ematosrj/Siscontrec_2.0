@@ -11,7 +11,7 @@ class CheckAccess
     public function handle(Request $request, Closure $next)
     {
         // Verificando se o usuário está autenticado e se ele possui o acesso permitido
-        if (Auth::check() && in_array(Auth::user()->acess, ['Super-Usuario', 'Administrador'])) {
+        if (Auth::check() && in_array(Auth::user()->access, ['Super-Usuario', 'Administrador'])) {
             return $next($request);
         }
 

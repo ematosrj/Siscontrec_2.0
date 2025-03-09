@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('title', 'Página Inicial')
 
@@ -11,7 +11,7 @@
 
 
 @section('content')
-    <div class="bg-white p-6 shadow-md rounded text-center max-w-3xl mx-auto">
+    <div class="bg-white p-6 shadow-md rounded mt-9 text-center max-w-3xl mx-auto">
         <h2 class="text-2xl font-bold mb-6">Bem-vindo ao Siscontrec!</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -33,17 +33,17 @@
                 </button>
             </form>
 
+            <a href="{{ route('visitantes.create') }}" class="inline-block px-6 py-2 bg-green-500 text-white text-center rounded-md hover:bg-green-700">
+    Cadastrar Visitante
+</a>
+
+
             @if (auth()->user()->access == 'Super-Usuario' || auth()->user()->access == 'Administrador')
-                <a href="{{ route('operadores.create') }}" class="bg-yellow-500 hover:bg-yellow-700 text-white py-3 px-4 rounded-lg text-lg w-full">
+                <a href="{{ route('operadores.create') }}" class="bg-yellow-500 hover:bg-yellow-700 text-white py-3 px-4 rounded-lg text-lg w-full34sds">
                     Adicionar Operador
                 </a>
 
-                <form action="{{ route('operadores.store') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-lg text-lg w-full">
-                        Salvar Operador
-                    </button>
-                </form>
+
             @endif
         </div>
     </div>

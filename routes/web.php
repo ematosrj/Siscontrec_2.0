@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OperadorController;
+use App\Http\Controllers\VisitanteController;
+
 
 
 /*
@@ -36,6 +38,9 @@ Route::middleware(['auth', 'check.access'])->group(function () {
     Route::post('/operadores', [OperadorController::class, 'store'])->name('operadores.store');
 });
 
+
+Route::get('/visitantes/cadastrar', [VisitanteController::class, 'create'])->name('visitantes.create');
+Route::post('/visitantes', [VisitanteController::class, 'store'])->name('visitantes.store');
 
 
 

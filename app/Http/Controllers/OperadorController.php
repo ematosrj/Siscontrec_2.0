@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Operador;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,27 +17,26 @@ class OperadorController extends Controller
 
     public function store(Request $request)
     {
-        // Validação dos dados do formulário
         $request->validate([
-            'hierarquia' => 'required|string|max:255',
-            'nome' => 'required|string|max:255',
+            'registration_number' => 'required|string|unique:users,registration_number',
+            'rank' => 'required|string',
+            'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'acesso' => 'required|in:Super-Usuario,Administrador,Operador',
+            'access' => 'required|string',
+            'password' => 'required|string|min:8',
         ]);
-
-        // Criando um novo operador e salvando no banco
-        $operador = new Operador();
-        $operador->hierarquia = $request->hierarquia;
-        $operador->nome = $request->nome;
-        $operador->email = $request->email;
-        $operador->acess = $request->acesso;
-
-        // Você pode também configurar a senha para o operador (se necessário)
-        // $operador->password = Hash::make($request->password);
         
-        // Salvando o operador no banco de dados
-        $operador->save();
-
-        return redirect()->route('operadores.create')->with('success', 'Operador criado com sucesso!');
-    }
+        $user = new User();
+        $user->registration_number = $request->registration_number;
+        $user->rank = $request->rank;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->access = $request->access;
+        $user->password = Hash::make($request->password);
+        $user->save();
+        
+        return redirect()->route('operadores.create')->with('success', 'Operador cadastrado com sucesso!');
+        
+    
+}
 }

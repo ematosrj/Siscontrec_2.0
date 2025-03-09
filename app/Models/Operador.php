@@ -14,10 +14,13 @@ class Operador extends Model
 
     // Campos que podem ser atribuídos em massa
     protected $fillable = [
-        'hierarquia',
-        'nome',
+        'rank',
+        'name',
         'email',
-        'acess',
+        'access',
+        'password',
+        
+
     ];
 
     // Desabilitar a manutenção dos timestamps automáticos, se necessário
